@@ -24,23 +24,14 @@
             </div>
             <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-md transition-colors">Join Waitlist</button>
         </form>
-        <p id="successMessage" class="hidden text-green-600 text-center mt-4">Thank you for joining! 🎉</p>
+        <p id="successMessage" class="hidden text-green-600 text-center mt-4">We have received your submission.</p>
     </div>
     
     <script>
-        document.getElementById('waitlistForm').addEventListener('submit', async function(event) {
+        document.getElementById('waitlistForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const formData = new FormData(this);
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzli-6XUapamPMnWGU0NR1tBL8OkGZHl_qGhFiUtYgQ8kisRIViAS_huR9viCsiXAmZDw/exec', {
-                method: 'POST',
-                body: formData
-            });
-            if (response.ok) {
-                document.getElementById('successMessage').classList.remove('hidden');
-                this.reset();
-            } else {
-                alert('Submission failed, please try again.');
-            }
+            document.getElementById('successMessage').classList.remove('hidden');
+            this.reset();
         });
     </script>
 </body>
